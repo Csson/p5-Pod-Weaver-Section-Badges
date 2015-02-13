@@ -1,0 +1,95 @@
+---
++doctype: dist
+name: Pod-Weaver-Section-Badges
+author: Erik Carlsson <info@code301.com>
+license: Perl_5
+copyright_holder: Erik Carlsson <info@code301.com>
+copyright_year: 2015
+
+plugins:
+ - plugin: GatherDir
+ - plugin: PruneCruft
+ - plugin: ManifestSkip
+ - plugin: MetaYAML
+ - plugin: License
+ - plugin: Readme
+ - plugin: ExtraTests
+ - plugin: ExecDir
+ - plugin: ShareDir
+ - plugin: MakeMaker
+ - plugin: Manifest
+ - plugin: TestRelease
+ - plugin: ConfirmRelease
+ - plugin: UploadToCPAN
+
+---
++doctype: weaver
+
+plugins:
+- plugin: '@CorePrep'
+
+- plugin: '-SingleEncoding'
+
+- plugin: Name
+
+- plugin: Version
+  format: 'Version %v, released %{YYYY-MM-dd}d.'
+
+- plugin: Prelude
+  xp:     Region
+  region_name: prelude
+
+- plugin: Synopsis
+  xp:     Generic
+  header: SYNOPSIS
+
+- plugin: Description
+  xp:     Generic
+  header: DESCRIPTION
+
+- plugin: Overview
+  xp:     Generic
+  header: OVERVIEW
+
+- plugin: Stability
+  xp:     Generic
+  header: STABILITY
+
+- plugin: Attributes
+  xp:     Collect
+  header: ATTRIBUTES
+  command: attr
+
+- plugin: Methods
+  xp:     Collect
+  header: METHODS
+  command: method
+
+- plugin: Functions
+  xp:     Collect
+  header: FUNCTIONS
+  command: func
+
+- plugin: Leftovers
+
+- plugin: postlude
+  xp:     Region
+
+- plugin: Source::DefaultGitHub
+  text:   L<%s>
+  __add_if: $self.include_default_github
+
+- plugin: Homepage::DefaultCPAN
+  text:   L<%s>
+
+- plugin: Authors
+
+- plugin: Legal
+
+- plugin: List
+  xp:     -Transformer
+  transformer: List
+
+- plugin: Splint
+  xp:     -Transformer
+  transformer: Splint
