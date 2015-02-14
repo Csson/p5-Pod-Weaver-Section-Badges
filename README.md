@@ -1,20 +1,60 @@
 # NAME
 
-Pod::Weaver::Section::Badges - Short intro
+Pod::Weaver::Section::Badges - Insert badges in your pod
 
 # VERSION
 
-Version 0.0001, released 2015-02-13.
+Version 0.0001, released 2015-02-14.
 
 # SYNOPSIS
 
-    use Pod::Weaver::Section::Badges;
+    ; in weaver.ini
+    [Badges]
+    heading = BUILD STATUS
+    command = head1
+    user = MyGithubUser
+    repo = the_repository
+    branch = master
+    badges = travis
+    badges = http://www.example.com/img/<repo>.jpg | http://www.example.com/repos/<repo>
+    badges = https://img.shields.io/gratipay/<gratipay_user>.svg
+    -gratipay_user = ExampleName
 
 # DESCRIPTION
 
-Pod::Weaver::Section::Badges is ...
+This inserts a section with status badges. The configuration in the synopsis would produce something similar to this:
+
+    =head1 BUILD STATUS
+
+    =begin HTML
+
+    <p>
+        <a href="https://travis-ci.org/MyGithubUser/the_repository"><img src="https://travis-ci.org/MyGithubUser/the_repository.svg?branch=master" /></a>
+        <a href="http://www.example.com/repos/the_repository"><img src="http://www.example.com/img/the_repository.jpg" /></a>
+        <img src="https://img.shields.io/gratipay/the_repository/ExampleName.svg" />
+    </p>
+
+    =end HTML
+
+# ATTRIBUTES
+
+## badges
+
+## branch
+
+## command
+
+## extras
+
+## heading
+
+## repo
+
+## user
 
 # SEE ALSO
+
+\* Dist::Zilla::Plugin::TravisCI::StatusBadge
 
 # HOMEPAGE
 
