@@ -4,7 +4,7 @@ Pod::Weaver::Section::Badges - Insert badges in your pod
 
 # VERSION
 
-Version 0.0001, released 2015-02-14.
+Version 0.0100, released 2015-02-14.
 
 # SYNOPSIS
 

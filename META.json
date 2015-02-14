@@ -111,7 +111,7 @@
    "provides" : {
       "Pod::Weaver::Section::Badges" : {
          "file" : "lib/Pod/Weaver/Section/Badges.pm",
-         "version" : "0.0001"
+         "version" : "0.0100"
       }
    },
    "release_status" : "stable",
@@ -126,6 +126,6 @@
          "web" : "https://github.com/Csson/p5-Pod-Weaver-Section-Badges"
       }
    },
-   "version" : "0.0001"
+   "version" : "0.0100"
 }
 

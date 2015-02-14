@@ -1,4 +1,25 @@
 Revision history for Pod-Weaver-Section-Badges
 
 {{$NEXT}}
-     - Initial release
+ [API Changes]
+
+ [Bug Fixes]
+
+ [Documentation]
+ - Fixed link to Dist::Zilla::Plugin::TravisCI::StatusBadge under See Also.
+
+ [Enhancements]
+
+ [Meta]
+
+ [New Features]
+
+ [Requirements]
+
+ [Revision]
+
+ [Testing]
+
+0.0100 2015-02-14T02:18:15Z CET
+ - Initial release
+
