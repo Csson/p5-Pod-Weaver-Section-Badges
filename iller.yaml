@@ -22,6 +22,10 @@ name: Pod-Weaver-Section-Badges
 +plugins:
   - +config: Author::CSSON
 
+  - +plugin: TravisYML
+    +before: Git::Tag
+    perl_version: 5.14 5.20
+
 ---
 +doctype: weaver
 

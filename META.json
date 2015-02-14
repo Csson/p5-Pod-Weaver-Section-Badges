@@ -66,6 +66,7 @@
             "Dist::Zilla::Plugin::RunExtraTests" : "0",
             "Dist::Zilla::Plugin::ShareDir" : "0",
             "Dist::Zilla::Plugin::TestRelease" : "0",
+            "Dist::Zilla::Plugin::TravisYML" : "0",
             "Dist::Zilla::Plugin::UploadToCPAN" : "0",
             "Pod::Elemental::Transformer::List" : "0",
             "Pod::Elemental::Transformer::Splint" : "0",
@@ -113,7 +114,17 @@
       }
    },
    "release_status" : "stable",
-   "resources" : {},
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/Csson/p5-Pod-Weaver-Section-Badges/issues"
+      },
+      "homepage" : "https://metacpan.org/release/Pod-Weaver-Section-Badges",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/Csson/p5-Pod-Weaver-Section-Badges.git",
+         "web" : "https://github.com/Csson/p5-Pod-Weaver-Section-Badges"
+      }
+   },
    "version" : "0.0001"
 }
 
