@@ -206,8 +206,7 @@ This inserts a section with status badges. The configuration in the synopsis wou
 =head1 SEE ALSO
 
 =for :list
-
-* Dist::Zilla::Plugin::TravisCI::StatusBadge
+* L<Dist::Zilla::Plugin::TravisCI::StatusBadge>
 
 =head1 BUILD STATUS
 
