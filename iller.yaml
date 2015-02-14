@@ -2,6 +2,23 @@
 +doctype: dist
 name: Pod-Weaver-Section-Badges
 
++prereqs:
+  runtime:
+    requires:
+      - perl: 5.014000
+      - Moose: 2.0000
+      - Moops: 0.034
+      - Pod::Weaver::Role::Section
+      - MooseX::AttributeDocumented
+  test:
+    requires:
+      - Test::Differences
+      - PPI
+      - Pod::Elemental
+      - Pod::Weaver
+      - Dist::Zilla::Tester
+      - Path::Tiny
+
 +plugins:
   - +config: Author::CSSON
 
@@ -10,5 +27,3 @@ name: Pod-Weaver-Section-Badges
 
 +plugins:
   - +config: Author::CSSON
-
-  - +remove_plugin: Splint
