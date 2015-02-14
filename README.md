@@ -58,6 +58,10 @@ This inserts a section with status badges. The configuration in the synopsis wou
 
 # BUILD STATUS
 
+# SOURCE
+
+[https://github.com/Csson/p5-Pod-Weaver-Section-Badges](https://github.com/Csson/p5-Pod-Weaver-Section-Badges)
+
 # HOMEPAGE
 
 [https://metacpan.org/release/Pod-Weaver-Section-Badges](https://metacpan.org/release/Pod-Weaver-Section-Badges)
