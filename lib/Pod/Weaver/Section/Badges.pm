@@ -209,4 +209,8 @@ This inserts a section with status badges. The configuration in the synopsis wou
 
 * Dist::Zilla::Plugin::TravisCI::StatusBadge
 
+=head1 BUILD STATUS
+
+=for HTML <p><a href="https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges"><img src="https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges.svg?branch=master" /></a></p>
+
 =cut

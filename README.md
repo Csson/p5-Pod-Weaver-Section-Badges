@@ -56,6 +56,8 @@ This inserts a section with status badges. The configuration in the synopsis wou
 
 \* Dist::Zilla::Plugin::TravisCI::StatusBadge
 
+# BUILD STATUS
+
 # HOMEPAGE
 
 [https://metacpan.org/release/Pod-Weaver-Section-Badges](https://metacpan.org/release/Pod-Weaver-Section-Badges)
