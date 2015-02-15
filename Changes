@@ -16,6 +16,7 @@ Revision history for Pod-Weaver-Section-Badges
 
  [Requirements]
  - Dist::Zilla::Plugin::PodWeaver is now listed as a test prereq.
+ - Added DZP::ReportPrereqs to dist.ini.
 
  [Revision]
 

@@ -54,7 +54,7 @@ This inserts a section with status badges. The configuration in the synopsis wou
 
 # NOTE
 
-Planned api changes: Badges will soon be created as plugins to this class.
+Planned api changes: Badges will in the near future be created as plugins to this class.
 
 # SEE ALSO
 
