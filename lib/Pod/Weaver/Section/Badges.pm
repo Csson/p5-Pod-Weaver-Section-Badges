@@ -5,14 +5,19 @@ use Moops;
 
 # PODCLASSNAME
 
+package Pod::Weaver::Section::Badges::PluginSearcher {
+    use Moose;
+    use Module::Pluggable search_path => ['Pod::Weaver::Section::Badges::For'], require => 1;
+}
+
 class Pod::Weaver::Section::Badges using Moose with Pod::Weaver::Role::Section {
 
     # VERSION
     # ABSTRACT: Insert badges in your pod
     use MooseX::AttributeDocumented;
+    use Pod::Weaver::Section::Badges::PluginSearcher;
 
     sub mvp_multivalue_args { qw/badges/ }
-
 
     has +weaver => (
         is => 'ro',
@@ -40,13 +45,16 @@ class Pod::Weaver::Section::Badges using Moose with Pod::Weaver::Role::Section {
     );
     has badges => (
         is => 'ro',
-        isa => ArrayRef[Str],
+        isa => Map[ Str, Bool|ConsumerOf['Pod::Weaver::Section::Badges::Badge'] ],
         default => sub { [] },
-        traits => ['Array'],
+        traits => ['Hash'],
         handles => {
-            all_badges => 'elements',
+            badges_kv => 'kv',
+            badges_keys => 'keys',
+            get_badge => 'get',
+            set_badge => 'set',
         },
-        documentation_default => '[]',
+        documentation_default => '{}',
         documentation_alts => {
             travis => 'Support for travis is built-in.',
             "'img_url' | 'link_url'" => q{Custom badges are created with a pipe-delimited string.},
@@ -86,12 +94,61 @@ class Pod::Weaver::Section::Badges using Moose with Pod::Weaver::Role::Section {
     );
 
     around BUILDARGS($next: $class, $args) {
+
+        $args->{'badges'} = { map { $_ => 1 } @{ $args->{'badges'} } };
         $args->{'extras'} = { map { $_ => delete $args->{ $_  } } grep { /^-/ } keys %$args };
 
         $class->$next($args);
     }
+    method BUILD {
+
+        BADGE:
+        foreach my $plugin_module (Pod::Weaver::Section::Badges::PluginSearcher->new->plugins) {
+
+            my $plugin_badge = lc $plugin_module;
+            $plugin_badge =~ s{^Pod::Weaver::Section::Badges::For::}{}i;
+            next BADGE if !$self->get_badge($plugin_badge);
+
+            my $plugin = $plugin_module->new( %{ $self->get_params_for($plugin_badge) } );
+            $self->set_badge($plugin_badge, $plugin);
+        }
+    }
 
     method weave_section($document, @unused) {
+        my @badge_html = ();
+
+        foreach my $badge ($self->badges_keys) {
+            push @badge_html => $self->get_badge($badge)->create_badge;
+        }
+
+        if(scalar @badge_html) {
+            my $output = join "\n" => '=begin HTML', '',  '<p>' . join (' ' => @badge_html) . '</p>', '', '=end HTML', '';
+
+            push @{ $document->children } =>
+                Pod::Elemental::Element::Nested->new(
+                    command => $self->command,
+                    content => $self->heading,
+                    children => [ Pod::Elemental::Element::Pod5::Ordinary->new({ content => $output }) ],
+                );
+        }
+    }
+
+    method get_params_for(Str $badgename --> HashRef but assumed) {
+        my $params = {};
+
+        foreach my $pair ($self->extras_kv) {
+            my($key, $value) = @$pair;
+
+            # -pluginname_* -> *
+            my $key_for_plugin = $key;
+            $key_for_plugin =~ s{^-${badgename}_}{};
+
+            $params->{ $key_for_plugin } = $value if substr($key, 0, 2 + length $badgename) eq sprintf '-%s_' => lc $badgename;
+        }
+        return $params;
+    }
+
+    method weave_section2($document, @unused) {
         my $has_git_settings = $self->has_user && $self->has_repo && $self->has_branch;
 
         my @tags = ();

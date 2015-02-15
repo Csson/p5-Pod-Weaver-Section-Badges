@@ -4,7 +4,7 @@ Pod::Weaver::Section::Badges - Insert badges in your pod
 
 # VERSION
 
-Version 0.0100, released 2015-02-14.
+Version 0.0101, released 2015-02-15.
 
 # SYNOPSIS
 
@@ -54,7 +54,7 @@ This inserts a section with status badges. The configuration in the synopsis wou
 
 # SEE ALSO
 
-\* Dist::Zilla::Plugin::TravisCI::StatusBadge
+- [Dist::Zilla::Plugin::TravisCI::StatusBadge](https://metacpan.org/pod/Dist::Zilla::Plugin::TravisCI::StatusBadge)
 
 # BUILD STATUS
 

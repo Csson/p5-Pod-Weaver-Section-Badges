@@ -13,7 +13,7 @@ use if $ENV{'AUTHOR_TESTING'}, 'Test::Warnings';
 BEGIN {
     use_ok 'Pod::Weaver::Section::Badges';
 }
-
+use lib path('t/corpus/01/lib')->absolute->stringify;
 
 my $zilla = Dist::Zilla::Tester->from_config({ dist_root => 't/corpus/01' });
 $zilla->build;
