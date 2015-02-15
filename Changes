@@ -6,7 +6,6 @@ Revision history for Pod-Weaver-Section-Badges
  [Bug Fixes]
 
  [Documentation]
- - Fixed link to Dist::Zilla::Plugin::TravisCI::StatusBadge under See Also.
 
  [Enhancements]
 
@@ -19,6 +18,14 @@ Revision history for Pod-Weaver-Section-Badges
  [Revision]
 
  [Testing]
+
+0.0101 2015-02-15T16:24:15Z CET
+ [Documentation]
+ - Fixed link to Dist::Zilla::Plugin::TravisCI::StatusBadge under See Also.
+
+ [Requirements]
+ - Dist::Zilla::Plugin::PodWeaver is now listed as a test prereq.
+ - Added DZP::ReportPrereqs to dist.ini.
 
 0.0100 2015-02-14T02:18:15Z CET
  - Initial release

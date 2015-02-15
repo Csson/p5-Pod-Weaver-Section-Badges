@@ -65,6 +65,7 @@
             "Dist::Zilla::Plugin::ReversionOnRelease" : "0",
             "Dist::Zilla::Plugin::RunExtraTests" : "0",
             "Dist::Zilla::Plugin::ShareDir" : "0",
+            "Dist::Zilla::Plugin::Test::ReportPrereqs" : "0",
             "Dist::Zilla::Plugin::TestRelease" : "0",
             "Dist::Zilla::Plugin::TravisYML" : "0",
             "Dist::Zilla::Plugin::UploadToCPAN" : "0",
@@ -97,8 +98,14 @@
          }
       },
       "test" : {
+         "recommends" : {
+            "CPAN::Meta" : "2.120900"
+         },
          "requires" : {
+            "Dist::Zilla::Plugin::PodWeaver" : "0",
             "Dist::Zilla::Tester" : "0",
+            "ExtUtils::MakeMaker" : "0",
+            "File::Spec" : "0",
             "PPI" : "0",
             "Path::Tiny" : "0",
             "Pod::Elemental" : "0",

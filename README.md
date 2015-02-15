@@ -52,6 +52,10 @@ This inserts a section with status badges. The configuration in the synopsis wou
 
 ## user
 
+# NOTE
+
+Planned api changes: Badges will in the near future be created as plugins to this class.
+
 # SEE ALSO
 
 - [Dist::Zilla::Plugin::TravisCI::StatusBadge](https://metacpan.org/pod/Dist::Zilla::Plugin::TravisCI::StatusBadge)

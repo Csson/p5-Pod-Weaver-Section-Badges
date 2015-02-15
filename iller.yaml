@@ -16,6 +16,7 @@ name: Pod-Weaver-Section-Badges
       - PPI
       - Pod::Elemental
       - Pod::Weaver
+      - Dist::Zilla::Plugin::PodWeaver
       - Dist::Zilla::Tester
       - Path::Tiny
 
