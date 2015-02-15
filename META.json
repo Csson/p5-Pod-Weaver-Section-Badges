@@ -98,6 +98,7 @@
       },
       "test" : {
          "requires" : {
+            "Dist::Zilla::Plugin::PodWeaver" : "0",
             "Dist::Zilla::Tester" : "0",
             "PPI" : "0",
             "Path::Tiny" : "0",
@@ -111,7 +112,7 @@
    "provides" : {
       "Pod::Weaver::Section::Badges" : {
          "file" : "lib/Pod/Weaver/Section/Badges.pm",
-         "version" : "0.0100"
+         "version" : "0.0101"
       }
    },
    "release_status" : "stable",
@@ -126,6 +127,6 @@
          "web" : "https://github.com/Csson/p5-Pod-Weaver-Section-Badges"
       }
    },
-   "version" : "0.0100"
+   "version" : "0.0101"
 }
 
