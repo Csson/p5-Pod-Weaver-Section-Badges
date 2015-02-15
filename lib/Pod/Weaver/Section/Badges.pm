@@ -203,6 +203,10 @@ This inserts a section with status badges. The configuration in the synopsis wou
 
 :splint attributes
 
+=head1 NOTE
+
+Planned api changes: Badges will in the near future be created as plugins to this class.
+
 =head1 SEE ALSO
 
 =for :list
