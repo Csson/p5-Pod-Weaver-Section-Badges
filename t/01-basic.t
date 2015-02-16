@@ -24,9 +24,24 @@ eq_or_diff path($zilla->tempdir->subdir('build'))->child(qw/lib TesterFor Badges
 done_testing;
 
 sub expected {
-    return qq{package TesterFor::Badges;
+    return qq{use 5.14.0;
+use strict;
+use warnings;
+use Moops;
 
 # ABSTRACT: A tester
+
+class TesterFor::Badges using Moose with Pod::Weaver::Section::Badges::Utils {
+    has extras => (
+        is => 'ro',
+        isa => HashRef[Str],
+        default => sub { {} },
+        traits => ['Hash'],
+        handles => {
+            extras_kv => 'kv',
+        },
+    );
+}
 
 1;
 
@@ -38,7 +53,7 @@ __END__
 
 =begin HTML
 
-<p><a href="https://travis-ci.org/Csson/p5-test-mojo-trim"><img src="https://travis-ci.org/Csson/p5-test-mojo-trim.svg?branch=master" /></a> <a href="https://gratipay.com/TestName"><img src="https://img.shields.io/gratipay/p5-test-mojo-trim/TestName.svg" /></a> <img src="https://img.shields.io/gratipay/p5-test-mojo-trim/TestName.svg" /></p>
+<p><a href="https://example.com/Csson/p5-test-mojo-trim"><img src="https://example.com/Csson/p5-test-mojo-trim.svg" /></a></p>
 
 =end HTML
 

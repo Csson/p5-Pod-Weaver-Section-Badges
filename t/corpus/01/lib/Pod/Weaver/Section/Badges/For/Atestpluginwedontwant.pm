@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Moops;
 
-class Pod::Weaver::Section::Badges::For::Thisisatestplugin using Moose with Pod::Weaver::Section::Badges::Badge {
+class Pod::Weaver::Section::Badges::For::Atestpluginwedontwant using Moose with Pod::Weaver::Section::Badges::Badge {
 
     has user => (
         is => 'ro',

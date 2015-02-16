@@ -4,7 +4,7 @@ Pod::Weaver::Section::Badges - Insert badges in your pod
 
 # VERSION
 
-Version 0.0101, released 2015-02-15.
+Version 0.0102, released 2015-02-16.
 
 # SYNOPSIS
 
@@ -38,19 +38,13 @@ This inserts a section with status badges. The configuration in the synopsis wou
 
 # ATTRIBUTES
 
-## badges
-
-## branch
+## badge
 
 ## command
 
 ## extras
 
 ## heading
-
-## repo
-
-## user
 
 # NOTE
 

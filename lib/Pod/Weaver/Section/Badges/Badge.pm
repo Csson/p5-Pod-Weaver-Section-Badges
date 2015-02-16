@@ -4,6 +4,7 @@ use warnings;
 use Moops;
 
 # PODCLASSNAME
+# ABSTRACT: A role for badge plugins to consume
 
 role Pod::Weaver::Section::Badges::Badge using Moose {
 
