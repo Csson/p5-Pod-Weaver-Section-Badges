@@ -6,13 +6,13 @@ use Moops;
 # ABSTRACT: A tester
 
 class TesterFor::Badges using Moose with Pod::Weaver::Section::Badges::Utils {
-    has extras => (
+    has badge_args => (
         is => 'ro',
         isa => HashRef[Str],
         default => sub { {} },
         traits => ['Hash'],
         handles => {
-            extras_kv => 'kv',
+            badge_args_kv => 'kv',
         },
     );
 }
