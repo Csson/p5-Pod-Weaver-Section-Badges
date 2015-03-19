@@ -134,6 +134,9 @@ using Moose {
             $self->add_text_to_section($document, $output, $self->section);
         }
     }
+    method log_debug($text) {
+        # silence Pod::Weaver::Role::AddTextToSection
+    }
 }
 
 1;
