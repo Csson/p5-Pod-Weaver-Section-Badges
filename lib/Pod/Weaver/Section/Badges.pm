@@ -196,10 +196,11 @@ The synopsis uses the L<Badge::Depot::Plugin::Travis> and L<Badge::Depot::Plugin
 
 =end HTML
 
-=begin MARKDOWN
+=begin markdown
 
     [!(https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges.svg?branch=master)](https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges)
     ![](https://img.shields.io/badge/perl-5.14+-brightgreen.svg)
-=end MARKDOWN
+
+=end markdown
 
 =cut
