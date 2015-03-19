@@ -18,3 +18,12 @@ class TesterFor::Badges using Moose with Pod::Weaver::Section::Badges::Utils {
 }
 
 1;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+TesterFor::Badges
+

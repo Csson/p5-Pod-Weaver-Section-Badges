@@ -18,11 +18,11 @@ BEGIN {
 
 use TesterFor::Badges;
 
-my $tester_for = TesterFor::Badges->new(extras => { -gratipay_option => 'thevalue' });
+my $tester_for = TesterFor::Badges->new(badge_args => { -gratipay_option => 'thevalue' });
 
-is_deeply $tester_for->extras, { -gratipay_option => 'thevalue' }, 'Got correct extras hash' or diag('extras is: ', explain($tester_for->extras));
+is_deeply $tester_for->badge_args, { -gratipay_option => 'thevalue' }, 'Got correct badge_args hash' or diag('badge_args is: ', explain($tester_for->badge_args));
 
-is $tester_for->badge_to_class('gratipay'), 'Pod::Weaver::Section::Badges::For::Gratipay', 'Got correct class name';
+is $tester_for->badge_to_class('gratipay'), 'Badge::Depot::Plugin::Gratipay', 'Got correct class name';
 
 is_deeply { $tester_for->get_params_for('gratipay') }, { option => 'thevalue' },  'Got correct settings';
 

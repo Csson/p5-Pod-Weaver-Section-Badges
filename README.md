@@ -1,23 +1,22 @@
 # NAME
 
-Pod::Weaver::Section::Badges - Insert badges in your pod
+Pod::Weaver::Section::Badges - Add a NAME section with abstract, and badges
 
 # VERSION
 
-Version 0.0102, released 2015-02-16.
+Version 0.0102, released 2015-03-19.
 
 # SYNOPSIS
 
     ; in weaver.ini
     [Badges]
-    heading = BUILD STATUS
-    command = head1
-    user = MyGithubUser
-    repo = the_repository
-    branch = master
-    badges = travis
-    badges = http://www.example.com/img/<repo>.jpg | http://www.example.com/repos/<repo>
-    badges = https://img.shields.io/gratipay/<gratipay_user>.svg
+    section = BUILD STATUS
+    formats = html
+    badge = Travis
+    badge = Gratipay
+    -travis_user = MyGithubUser
+    -travis_repo = the_repository
+    -travis_branch = master
     -gratipay_user = ExampleName
 
 # DESCRIPTION
@@ -30,31 +29,32 @@ This inserts a section with status badges. The configuration in the synopsis wou
 
     <p>
         <a href="https://travis-ci.org/MyGithubUser/the_repository"><img src="https://travis-ci.org/MyGithubUser/the_repository.svg?branch=master" /></a>
-        <a href="http://www.example.com/repos/the_repository"><img src="http://www.example.com/img/the_repository.jpg" /></a>
-        <img src="https://img.shields.io/gratipay/the_repository/ExampleName.svg" />
+        <img src="https://img.shields.io/gratipay/ExampleName.svg" />
     </p>
 
     =end HTML
 
+This module uses badges in the `Badge::Depot::Plugin` namespace. See [Task::Badge::Depot](https://metacpan.org/pod/Task::Badge::Depot) for a list of available badges.
+The synopsis uses the [Badge::Depot::Plugin::Travis](https://metacpan.org/pod/Badge::Depot::Plugin::Travis) and [Badge::Depot::Plugin::Gratipay](https://metacpan.org/pod/Badge::Depot::Plugin::Gratipay) badges.
+
 # ATTRIBUTES
+
+## formats
 
 ## badge
 
-## command
+## badge\_args
 
-## extras
+## main\_module\_only
 
-## heading
-
-# NOTE
-
-Planned api changes: Badges will in the near future be created as plugins to this class.
+## section
 
 # SEE ALSO
 
-- [Dist::Zilla::Plugin::TravisCI::StatusBadge](https://metacpan.org/pod/Dist::Zilla::Plugin::TravisCI::StatusBadge)
+- [Task::Badge::Depot](https://metacpan.org/pod/Task::Badge::Depot)
+- [Badge::Depot](https://metacpan.org/pod/Badge::Depot)
 
-# BUILD STATUS
+# BADGES
 
 # SOURCE
 

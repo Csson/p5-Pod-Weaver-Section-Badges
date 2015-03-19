@@ -14,16 +14,10 @@ class Badge::Depot::Plugin::Atestpluginwedontwant using Moose with Badge::Depot 
         isa => Str,
     );
     
-    method create_badge {
-        my $a_href = 'https://example.com/%s/%s';
-        my $img_href = 'https://example.com/%s/%s.svg';
-
-        my $link = sprintf $a_href => $self->user, $self->repo;
-        my $img = sprintf $img_href => $self->user, $self->repo;
-
-        return sprintf qq{<a href="%s"><img src="%s" /></a>} => $link, $img;
+    method BUILD {
+        $self->link_url(sprintf 'https://example.com/%s/%s' => $self->user, $self->repo);
+        $self->image_url(sprintf 'https://example.com/%s/%s.svg' => $self->user, $self->repo);
     }
-    
 }
 
 1;

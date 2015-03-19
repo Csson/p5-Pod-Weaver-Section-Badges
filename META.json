@@ -1,5 +1,5 @@
 {
-   "abstract" : "Insert badges in your pod",
+   "abstract" : "Add a NAME section with abstract, and badges",
    "author" : [
       "Erik Carlsson <info@code301.com>"
    ],
@@ -120,16 +120,12 @@
          "file" : "lib/Pod/Weaver/Section/Badges.pm",
          "version" : "0.0102"
       },
-      "Pod::Weaver::Section::Badges::Badge" : {
-         "file" : "lib/Pod/Weaver/Section/Badges/Badge.pm",
-         "version" : "0.0102"
-      },
-      "Pod::Weaver::Section::Badges::PluginSearcher" : {
-         "file" : "lib/Pod/Weaver/Section/Badges.pm",
-         "version" : "0.0102"
-      },
       "Pod::Weaver::Section::Badges::Utils" : {
          "file" : "lib/Pod/Weaver/Section/Badges/Utils.pm",
+         "version" : "0.0102"
+      },
+      "Pod::Weaver::Section::Name::WithBadges::PluginSearcher" : {
+         "file" : "lib/Pod/Weaver/Section/Badges.pm",
          "version" : "0.0102"
       }
    },

@@ -1,8 +1,10 @@
 ---
-+doctype: dist
-name: Pod-Weaver-Section-Badges
+doctype: dist
 
-+prereqs:
+header:
+  name: Pod-Weaver-Section-Badges
+
+prereqs:
   runtime:
     requires:
       - perl: 5.014000
@@ -20,7 +22,7 @@ name: Pod-Weaver-Section-Badges
       - Dist::Zilla::Tester
       - Path::Tiny
 
-+plugins:
+plugins:
   - +config: Author::CSSON
 
   - +plugin: TravisYML
@@ -28,7 +30,7 @@ name: Pod-Weaver-Section-Badges
     perl_version: 5.14 5.20
 
 ---
-+doctype: weaver
+doctype: weaver
 
-+plugins:
+plugins:
   - +config: Author::CSSON
