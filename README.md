@@ -56,8 +56,8 @@ The synopsis uses the [Badge::Depot::Plugin::Travis](https://metacpan.org/pod/Ba
 
 # BADGES
 
-[![](https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges.svg?branch=master)](https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges)
-    ![](https://img.shields.io/badge/perl-5.14+-brightgreen.svg)
+![](https://img.shields.io/badge/perl-5.14+-brightgreen.svg)
+    [![](https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges.svg?branch=master)](https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges)
 
 # SOURCE
 
