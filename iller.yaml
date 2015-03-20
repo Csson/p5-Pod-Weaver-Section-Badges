@@ -11,6 +11,7 @@ prereqs:
       - Moose: 2.0000
       - Moops: 0.034
       - Pod::Weaver::Role::Section
+      - Pod::Weaver::Role::AddTextToSection
       - MooseX::AttributeDocumented
       - Module::Pluggable
   test:

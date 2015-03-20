@@ -94,6 +94,7 @@
             "Moops" : "0.034",
             "Moose" : "2.0000",
             "MooseX::AttributeDocumented" : "0",
+            "Pod::Weaver::Role::AddTextToSection" : "0",
             "Pod::Weaver::Role::Section" : "0",
             "perl" : "5.014000"
          }
