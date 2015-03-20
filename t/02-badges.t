@@ -18,8 +18,16 @@ use lib path('t/corpus/01/lib')->absolute->stringify;
 my $zilla = Dist::Zilla::Tester->from_config({ dist_root => 't/corpus/01' });
 $zilla->build;
 
+ok 1, 'Zilla is built';
+
+my $slurped = path($zilla->tempdir->subdir('build'))->child(qw/lib TesterFor Badges.pm/)->slurp_utf8;
+
+ok 2, 'Output is slurped';
+
 unified_diff;
-eq_or_diff path($zilla->tempdir->subdir('build'))->child(qw/lib TesterFor Badges.pm/)->slurp_utf8, expected(), 'Section added to pod';
+eq_or_diff $slurped, expected(), 'Section added to pod';
+
+diag $slurped;
 
 done_testing;
 
