@@ -13,16 +13,20 @@ use if $ENV{'AUTHOR_TESTING'}, 'Test::Warnings';
 BEGIN {
     use_ok 'Pod::Weaver::Section::Badges';
 }
+
+ok 1, 'After begin';
 use lib path('t/corpus/01/lib')->absolute->stringify;
+
+ok 2, 'After use lib';
 
 my $zilla = Dist::Zilla::Tester->from_config({ dist_root => 't/corpus/01' });
 $zilla->build;
 
-ok 1, 'Zilla is built';
+ok 3, 'Zilla is built';
 
 my $slurped = path($zilla->tempdir->subdir('build'))->child(qw/lib TesterFor Badges.pm/)->slurp_utf8;
 
-ok 2, 'Output is slurped';
+ok 4, 'Output is slurped';
 
 unified_diff;
 eq_or_diff $slurped, expected(), 'Section added to pod';
