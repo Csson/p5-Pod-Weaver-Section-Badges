@@ -30,7 +30,7 @@ plugins:
 
   - +plugin: TravisYML
     +before: Git::Tag
-    perl_version: 5.14 5.20
+    perl_version: 5.14 5.16 5.18 5.20
 
 ---
 doctype: weaver
