@@ -3,10 +3,12 @@ use strict;
 use warnings;
 use Moops;
 
-# VERSION
-# PODCLASSNAME
+# PODCLASSNAME:
 
 role Pod::Weaver::Section::Badges::Utils using Moose {
+
+    # VERSION
+    # ABSTRACT: Some helpers
 
     use List::AllUtils 'first';
 

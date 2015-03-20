@@ -4,7 +4,7 @@ Pod::Weaver::Section::Badges - Add a NAME section with abstract, and badges
 
 # VERSION
 
-Version 0.0102, released 2015-03-19.
+Version 0.0102, released 2015-03-20.
 
 # SYNOPSIS
 
