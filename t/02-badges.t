@@ -20,6 +20,9 @@ use lib path('t/corpus/01/lib')->absolute->stringify;
 ok 2, 'After use lib';
 
 my $zilla = Dist::Zilla::Tester->from_config({ dist_root => 't/corpus/01' });
+
+ok 2, 'After making Dzil tester';
+
 $zilla->build;
 
 ok 3, 'Zilla is built';
