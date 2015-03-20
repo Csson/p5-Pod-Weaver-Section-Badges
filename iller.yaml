@@ -13,7 +13,7 @@ prereqs:
       - Pod::Weaver::Role::Section
       - Pod::Weaver::Role::AddTextToSection
       - MooseX::AttributeDocumented
-      - Module::Pluggable
+      - Module::Pluggable: 4.7
   test:
     requires:
       - Test::Differences
