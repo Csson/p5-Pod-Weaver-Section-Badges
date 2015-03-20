@@ -21,6 +21,7 @@ prereqs:
       - Dist::Zilla::Plugin::PodWeaver
       - Dist::Zilla::Tester
       - Path::Tiny
+      - Badge::Depot
 
 plugins:
   - +config: Author::CSSON

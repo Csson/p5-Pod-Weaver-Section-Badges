@@ -102,6 +102,7 @@
             "CPAN::Meta" : "2.120900"
          },
          "requires" : {
+            "Badge::Depot" : "0",
             "Dist::Zilla::Plugin::PodWeaver" : "0",
             "Dist::Zilla::Tester" : "0",
             "ExtUtils::MakeMaker" : "0",
