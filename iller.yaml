@@ -12,6 +12,7 @@ prereqs:
       - Moops: 0.034
       - Pod::Weaver::Role::Section
       - MooseX::AttributeDocumented
+      - Module::Pluggable
   test:
     requires:
       - Test::Differences
