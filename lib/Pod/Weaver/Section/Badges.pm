@@ -17,7 +17,7 @@ class Pod::Weaver::Section::Badges
 using Moose {
 
     # VERSION
-    # ABSTRACT: Add a NAME section with abstract, and badges
+    # ABSTRACT: Add (or append) a section with badges
     use MooseX::AttributeDocumented;
     use Pod::Weaver::Section::Name::WithBadges::PluginSearcher;
     sub mvp_multivalue_args { qw/badge/ }
