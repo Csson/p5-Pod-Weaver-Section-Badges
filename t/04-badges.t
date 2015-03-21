@@ -10,6 +10,7 @@ use Pod::Weaver;
 use Test::DZil;
 use Path::Tiny;
 use syntax 'qs';
+use Carp::Always;
 use if $ENV{'AUTHOR_TESTING'}, 'Test::Warnings';
 
 BEGIN {
@@ -56,7 +57,7 @@ my $zilla = Builder->from_config(
     },
 );
 
-ok 1;
+ok 1, 'Before build';
 $zilla->chrome->logger->set_debug(1);
 use Data::Dump::Streamer;
 diag Dump($zilla);
