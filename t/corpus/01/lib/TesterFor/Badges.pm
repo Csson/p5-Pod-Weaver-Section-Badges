@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use Moops;
 
+# PODNAME: TesterFor::Badges
 # ABSTRACT: A tester
 
 class TesterFor::Badges using Moose with Pod::Weaver::Section::Badges::Utils {
@@ -23,7 +24,8 @@ __END__
 
 =pod
 
-=head1 NAME
+=head1 ATTRIBUTES
 
-TesterFor::Badges
+Some attributes.
 
+=cut

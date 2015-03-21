@@ -3,7 +3,11 @@ use strict;
 use warnings;
 use Moops;
 
+# PODNAME: Badge::Depot::Plugin::Thisisatestplugin
+
 class Badge::Depot::Plugin::Thisisatestplugin using Moose with Badge::Depot {
+
+    # VERSION
 
     has user => (
         is => 'ro',
