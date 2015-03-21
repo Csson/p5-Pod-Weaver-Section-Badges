@@ -159,7 +159,6 @@ __END__
     -travis_branch = master
     -gratipay_user = ExampleName
     
-
 =head1 DESCRIPTION
 
 This inserts a section with status badges. The configuration in the synopsis would produce something similar to this:
