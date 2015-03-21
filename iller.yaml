@@ -25,6 +25,7 @@ prereqs:
       - Test::DZil
       - Path::Tiny
       - Badge::Depot
+      - Data::Dump::Streamer
 
 plugins:
   - +config: Author::CSSON
