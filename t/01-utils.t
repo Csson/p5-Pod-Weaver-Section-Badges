@@ -14,6 +14,7 @@ use lib path('t/corpus/01/lib')->absolute->stringify;
 
 BEGIN {
     use_ok 'Pod::Weaver::Section::Badges::Utils';
+    use_ok 'Pod::Weaver::Section::Badges';
 }
 
 use TesterFor::Badges;
