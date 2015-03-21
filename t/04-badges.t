@@ -63,6 +63,8 @@ diag Dump($zilla);
 
 $zilla->build;
 
+ok 1, 'After build';
+
 my $slurped = path($zilla->tempdir->subdir('build'))->child(qw/lib Tester.pm/)->slurp_utf8;
 
 diag $slurped;
