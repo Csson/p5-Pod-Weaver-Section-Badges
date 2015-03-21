@@ -16,7 +16,7 @@ BEGIN {
     use_ok 'Pod::Weaver::Section::Badges';
 }
 
-ok 1, 'After begin';
+ok 1, 'After begin...';
 use lib path('t/corpus/01/lib')->absolute->stringify;
 
 ok 2, 'After use lib';
@@ -57,6 +57,9 @@ my $zilla = Builder->from_config(
 );
 
 ok 1;
+$zilla->chrome->logger->set_debug(1);
+use Data::Dump::Streamer;
+diag Dump($zilla);
 
 $zilla->build;
 
