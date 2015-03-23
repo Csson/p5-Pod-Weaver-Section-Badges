@@ -90,6 +90,7 @@
       },
       "runtime" : {
          "requires" : {
+            "List::AllUtils" : "0",
             "Module::Pluggable" : "4.7",
             "Moops" : "0.034",
             "Moose" : "2.0000",
@@ -125,15 +126,11 @@
    "provides" : {
       "Pod::Weaver::Section::Badges" : {
          "file" : "lib/Pod/Weaver/Section/Badges.pm",
-         "version" : "0.0201"
+         "version" : "0.0202"
       },
       "Pod::Weaver::Section::Badges::Utils" : {
          "file" : "lib/Pod/Weaver/Section/Badges/Utils.pm",
-         "version" : "0.0201"
-      },
-      "Pod::Weaver::Section::Name::WithBadges::PluginSearcher" : {
-         "file" : "lib/Pod/Weaver/Section/Badges.pm",
-         "version" : "0.0201"
+         "version" : "0.0202"
       }
    },
    "release_status" : "stable",
@@ -148,6 +145,6 @@
          "web" : "https://github.com/Csson/p5-Pod-Weaver-Section-Badges"
       }
    },
-   "version" : "0.0201"
+   "version" : "0.0202"
 }
 

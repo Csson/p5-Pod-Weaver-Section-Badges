@@ -14,6 +14,7 @@ prereqs:
       - Pod::Weaver::Role::AddTextToSection
       - MooseX::AttributeDocumented
       - Module::Pluggable: 4.7
+      - List::AllUtils
   test:
     requires:
       - Test::Differences
@@ -43,3 +44,5 @@ doctype: weaver
 
 plugins:
   - +config: Author::CSSON
+
+  - +remove_plugin: Badges

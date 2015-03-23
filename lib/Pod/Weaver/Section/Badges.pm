@@ -5,7 +5,9 @@ use warnings;
 
 # PODCLASSNAME
 
-package Pod::Weaver::Section::Name::WithBadges::PluginSearcher {
+package #
+        Pod::Weaver::Section::Badges::PluginSearcher {
+
     use Moose;
     use Module::Pluggable search_path => ['Badge::Depot::Plugin'], require => 1;
 }
@@ -19,7 +21,7 @@ using Moose {
     # VERSION
     # ABSTRACT: Add (or append) a section with badges
     use MooseX::AttributeDocumented;
-    use Pod::Weaver::Section::Name::WithBadges::PluginSearcher;
+    #use Pod::Weaver::Section::Name::WithBadges::PluginSearcher;
     sub mvp_multivalue_args { qw/badge/ }
 
     has +weaver => (
@@ -82,7 +84,7 @@ using Moose {
         is => 'ro',
         isa => Any,
         init_arg => undef,
-        default => sub { Pod::Weaver::Section::Name::WithBadges::PluginSearcher->new },
+        default => sub { Pod::Weaver::Section::Badges::PluginSearcher->new },
         documentation_order => 0,
     );
     has main_module_only => (
