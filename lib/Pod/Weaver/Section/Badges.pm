@@ -21,7 +21,7 @@ using Moose {
     # VERSION
     # ABSTRACT: Add (or append) a section with badges
     use MooseX::AttributeDocumented;
-    #use Pod::Weaver::Section::Name::WithBadges::PluginSearcher;
+
     sub mvp_multivalue_args { qw/badge/ }
 
     has +weaver => (
@@ -77,8 +77,7 @@ using Moose {
         handles => {
             badge_args_kv => 'kv',
         },
-        documentation_default => '{}',
-        documentation => q{badge_args is not a usable attribute in itself: All settings for badge plugins start with a dash, followed by the badge name (lowercased) and an underscore. If the badge plugin is Badge::Depot::Plugin::Travis, then all settings start with '-travis_'.},
+        documentation_order => 0,
     );
     has plugin_searcher => (
         is => 'ro',
@@ -178,6 +177,30 @@ This inserts a section with status badges. The configuration in the synopsis wou
 
 This module uses badges in the C<Badge::Depot::Plugin> namespace. See L<Task::Badge::Depot> for a list of available badges.
 The synopsis uses the L<Badge::Depot::Plugin::Travis> and L<Badge::Depot::Plugin::Gratipay> badges.
+
+Attributes starting with a dash (such as, in the synopsis, C<-travis_user> or C<-gratipay_user>) are given to each badge's constructor.
+
+=head2 Badge rendering
+
+As a comparison with using badges and L<Badge::Depot> directly, this is what C<Pod::Weaver::Section::Badges> does.
+
+First, with this part of the synopsis:
+
+    [Badges]
+    badge = Gratipay
+    -gratipay_user = ExampleName
+
+C<badge = Gratipay> means that L<Badge::Depot::Plugin::Gratipay> is automatically C<used>.
+
+Secondly, C<-gratipay_user = Example> means that this attribute is for the C<Gratipay> badge, so the prefix (C<-gratipay_>) is stripped and the attribute is given in the constructor:
+
+    my $gratipay_badge = Badge::Depot::Plugin::Gratipay->new(user => 'ExampleName');
+
+And then the given C<formats> is used to render the pod:
+
+    my $rendered_badge = $gratipay_badge->to_html;
+
+Which is then injected into the chosen C<section>.
 
 =head1 ATTRIBUTES
 

@@ -1,10 +1,10 @@
 # NAME
 
-Pod::Weaver::Section::Badges - Add a NAME section with abstract, and badges
+Pod::Weaver::Section::Badges - Add (or append) a section with badges
 
 # VERSION
 
-Version 0.0102, released 2015-03-20.
+Version 0.0203, released 2015-04-11.
 
 # SYNOPSIS
 
@@ -37,13 +37,35 @@ This inserts a section with status badges. The configuration in the synopsis wou
 This module uses badges in the `Badge::Depot::Plugin` namespace. See [Task::Badge::Depot](https://metacpan.org/pod/Task::Badge::Depot) for a list of available badges.
 The synopsis uses the [Badge::Depot::Plugin::Travis](https://metacpan.org/pod/Badge::Depot::Plugin::Travis) and [Badge::Depot::Plugin::Gratipay](https://metacpan.org/pod/Badge::Depot::Plugin::Gratipay) badges.
 
+Attributes starting with a dash (such as, in the synopsis, `-travis_user` or `-gratipay_user`) are given to each badge's constructor.
+
+## Badge rendering
+
+As a comparison with using badges and [Badge::Depot](https://metacpan.org/pod/Badge::Depot) directly, this is what `Pod::Weaver::Section::Badges` does.
+
+First, with this part of the synopsis:
+
+    [Badges]
+    badge = Gratipay
+    -gratipay_user = ExampleName
+
+`badge = Gratipay` means that [Badge::Depot::Plugin::Gratipay](https://metacpan.org/pod/Badge::Depot::Plugin::Gratipay) is automatically `used`.
+
+Secondly, `-gratipay_user = Example` means that this attribute is for the `Gratipay` badge, so the prefix (`-gratipay_`) is stripped and the attribute is given in the constructor:
+
+    my $gratipay_badge = Badge::Depot::Plugin::Gratipay->new(user => 'ExampleName');
+
+And then the given `formats` is used to render the pod:
+
+    my $rendered_badge = $gratipay_badge->to_html;
+
+Which is then injected into the chosen `section`.
+
 # ATTRIBUTES
 
 ## formats
 
 ## badge
-
-## badge\_args
 
 ## main\_module\_only
 
