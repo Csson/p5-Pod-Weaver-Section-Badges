@@ -1,10 +1,10 @@
 # NAME
 
-Pod::Weaver::Section::Badges - Add (or append) a section with badges
+Pod::Weaver::Section::Badges::PluginSearcher - Add (or append) a section with badges
 
 # VERSION
 
-Version 0.0203, released 2015-04-11.
+Version 0.0204, released 2016-01-26.
 
 # SYNOPSIS
 
@@ -65,11 +65,51 @@ Which is then injected into the chosen `section`.
 
 ## formats
 
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#Enum">Enum</a> [ "<a href="https://metacpan.org/pod/Types::Standard#html">html</a>","<a href="https://metacpan.org/pod/Types::Standard#markdown">markdown</a>" ] ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">required</td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p>The formats to render the badges for. Comma separated list, not multiple rows.</p>
+
 ## badge
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#ArrayRef">ArrayRef</a> [ <a href="https://metacpan.org/pod/Types::Standard#Str">Str</a> ]</td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">optional, default: <code>[]</code></td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p>The name of the wanted badge, lowercased. Repeat for multiple badges. The name is everything after 'Badge::Depot::Plugin::'.</p>
 
 ## main\_module\_only
 
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#Bool">Bool</a></td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">optional, default: <code>1</code></td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p>If true, the badges will only be inserted in the main module (as defined by Dist::Zilla). If false, they will be included in all modules.</p>
+
 ## section
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#Str">Str</a></td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">optional, default: <code>NAME</code></td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p>The section of pod to add the badges to, identified by its heading. The section will be created if it doesn't already exist.</p>
 
 # SEE ALSO
 
@@ -95,7 +135,7 @@ Erik Carlsson <info@code301.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2015 by Erik Carlsson <info@code301.com>.
+This software is copyright (c) 2016 by Erik Carlsson.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -7,9 +7,10 @@ header:
 prereqs:
   runtime:
     requires:
-      - perl: 5.014000
-      - Moose: 2.0000
-      - Moops: 0.034
+      - perl: 5.010001
+      - Moose: 2.1400
+      - namespace::autoclean: 0.18
+      - Types::Standard: 1.000000
       - Pod::Weaver::Role::Section
       - Pod::Weaver::Role::AddTextToSection
       - MooseX::AttributeDocumented
@@ -33,16 +34,14 @@ prereqs:
 plugins:
   - +config: Author::CSSON
 
-  - +plugin: TravisYML
-    +before: Git::Tag
-    perl_version: 5.14 5.16 5.18 5.20
-    script:
-      - dzil smoke --release --author -v
+  - +extend_plugin: TravisYML
+    perl_version: 5.10 5.14 5.18 5.20 5.22
 
 ---
 doctype: weaver
 
 plugins:
   - +config: Author::CSSON
+    splint: 1
 
   - +remove_plugin: Badges

@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.014000;
+use 5.010001;
 
 use ExtUtils::MakeMaker;
 
@@ -14,16 +14,17 @@ my %WriteMakefileArgs = (
   },
   "DISTNAME" => "Pod-Weaver-Section-Badges",
   "LICENSE" => "perl",
-  "MIN_PERL_VERSION" => "5.014000",
+  "MIN_PERL_VERSION" => "5.010001",
   "NAME" => "Pod::Weaver::Section::Badges",
   "PREREQ_PM" => {
     "List::AllUtils" => 0,
     "Module::Pluggable" => "4.7",
-    "Moops" => "0.034",
-    "Moose" => "2.0000",
+    "Moose" => "2.1400",
     "MooseX::AttributeDocumented" => 0,
     "Pod::Weaver::Role::AddTextToSection" => 0,
-    "Pod::Weaver::Role::Section" => 0
+    "Pod::Weaver::Role::Section" => 0,
+    "Types::Standard" => "1.000000",
+    "namespace::autoclean" => "0.18"
   },
   "TEST_REQUIRES" => {
     "Badge::Depot" => 0,
@@ -63,8 +64,7 @@ my %FallbackPrereqs = (
   "IPC::Open3" => 0,
   "List::AllUtils" => 0,
   "Module::Pluggable" => "4.7",
-  "Moops" => "0.034",
-  "Moose" => "2.0000",
+  "Moose" => "2.1400",
   "MooseX::AttributeDocumented" => 0,
   "PPI" => 0,
   "Path::Tiny" => 0,
@@ -75,7 +75,9 @@ my %FallbackPrereqs = (
   "Syntax::Feature::Qi" => "0.2004",
   "Test::DZil" => 0,
   "Test::Differences" => 0,
-  "Test::More" => "0.96"
+  "Test::More" => "0.96",
+  "Types::Standard" => "1.000000",
+  "namespace::autoclean" => "0.18"
 );
 
 
