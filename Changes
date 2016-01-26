@@ -2,9 +2,6 @@ Revision history for Pod-Weaver-Section-Badges
 
 {{$NEXT}}
  [API Changes]
- - This version has a completely different (and better) way to add badges:
- - There are now *no* built-in badges, all badges are separate and in the Badge::Depot::Plugin namespace.
- - There is now *no* way to make on-the-fly custom badges. The api was non-intuitive, and since it is so easy to create a new badge it is now of little use.
 
  [Bug Fixes]
 
@@ -17,9 +14,45 @@ Revision history for Pod-Weaver-Section-Badges
  [New Features]
 
  [Requirements]
- - Listed Badge::Depot as a test prereq.
 
  [Revision]
+
+ [Testing]
+
+0.0203 2015-04-11T23:58:00Z CEST
+ [Documentation]
+ - Removed documentation for the internal 'badge_args' attribute, and
+   instead:
+ - Added a section of documentation describing a bit more how badges are
+   rendered given the synopsis (and compared to using Badge::Depot
+   directly).
+
+0.0202 2015-03-23T18:01:15Z CET
+ [Enhancements]
+ - Renamed the plugin searcher class so that it is under the
+   Pod::Weaver::Section::Badges namespace.
+
+ [Requirements]
+ - Runtime: Listed List::AllUtils
+ - Test: Listed Syntax::Feature::Qi
+
+0.0201 2015-03-21T16:56:08Z CET
+ [Documentation]
+ - Corrected abstract.
+
+0.0200 2015-03-21T16:49:20Z CET
+ [API Changes]
+ - This version has a completely new (and better) way to choose badges:
+ - There are now *no* built-in badges, all badges are separate and in the
+   Badge::Depot::Plugin namespace.
+ - There is now *no* way to make on-the-fly custom badges. The api was
+   non-intuitive, and since it is so easy to create a new badge it is now
+   of little use.
+
+ [Requirements]
+ - Added a few test prereqs.
+ - Added Module::Pluggable as a runtime prereq.
+ - Added Pod::Weaver::Role::AddTextToSection as a runtime prereq.
 
  [Testing]
  - Changed test to test for multiple badges.
