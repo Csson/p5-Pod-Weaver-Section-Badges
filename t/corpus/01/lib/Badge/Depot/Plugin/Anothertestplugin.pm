@@ -18,7 +18,7 @@ has repo => (
     is => 'ro',
     isa => Str,
 );
-    
+
 sub BUILD {
     my $self = shift;
     $self->link_url(sprintf 'https://example.org/%s/%s' => $self->user, $self->repo);
