@@ -4,7 +4,7 @@ Pod::Weaver::Section::Badges::PluginSearcher - Add (or append) a section with ba
 
 # VERSION
 
-Version 0.0204, released 2016-01-26.
+Version 0.0300, released 2016-01-26.
 
 # SYNOPSIS
 

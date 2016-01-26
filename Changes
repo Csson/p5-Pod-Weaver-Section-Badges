@@ -9,19 +9,24 @@ Revision history for Pod-Weaver-Section-Badges
 
  [Enhancements]
 
- [Meta]
-
  [New Features]
 
- [Requirements]
-  - Remove Moops dependency (should now work on 5.10+).
-  - New (explicit) prereqs: namespace::autoclean, Types::Standard.
-
  [Other Changes]
-  - Rebuilt with current Dist::Iller::Config::Author::CSSON.
+
+ [Requirements]
 
  [Testing]
-  - Fix year dependent test (#2, thanks SREZIC).
+
+0.0300 2016-01-26T18:25:47Z UTC
+ [Other Changes]
+ - Rebuilt with current Dist::Iller::Config::Author::CSSON.
+
+ [Requirements]
+ - Remove Moops dependency (should now work on 5.10+).
+ - New (explicit) prereqs: namespace::autoclean, Types::Standard.
+
+ [Testing]
+ - Fix year dependent test (#2, thanks SREZIC).
 
 0.0203 2015-04-11T23:58:00Z CEST
  [Documentation]
