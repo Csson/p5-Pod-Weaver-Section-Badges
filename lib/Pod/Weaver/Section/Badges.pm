@@ -226,7 +226,7 @@ Which is then injected into the chosen C<section>.
 =begin HTML
 
 <p>
-    <img src="https://img.shields.io/badge/perl-5.14+-brightgreen.svg" />
+    <img src="https://img.shields.io/badge/perl-5.10.1+-brightgreen.svg" />
     <a href="https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges"><img src="https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges.svg?branch=master" /></a>
 </p>
 
