@@ -126,7 +126,8 @@
             "Syntax::Feature::Qi" : "0.2004",
             "Test::DZil" : "0",
             "Test::Differences" : "0",
-            "Test::More" : "0.96"
+            "Test::More" : "0.96",
+            "syntax" : "0"
          }
       }
    },

@@ -43,7 +43,8 @@ my %WriteMakefileArgs = (
     "Syntax::Feature::Qi" => "0.2004",
     "Test::DZil" => 0,
     "Test::Differences" => 0,
-    "Test::More" => "0.96"
+    "Test::More" => "0.96",
+    "syntax" => 0
   },
   "VERSION" => "0.0204",
   "test" => {
@@ -77,7 +78,8 @@ my %FallbackPrereqs = (
   "Test::Differences" => 0,
   "Test::More" => "0.96",
   "Types::Standard" => "1.000000",
-  "namespace::autoclean" => "0.18"
+  "namespace::autoclean" => "0.18",
+  "syntax" => 0
 );
 
 

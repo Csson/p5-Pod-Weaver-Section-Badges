@@ -29,6 +29,7 @@ prereqs:
       - Badge::Depot
       - FindBin
       - File::pushd
+      - syntax
       - Syntax::Feature::Qi: 0.2004
 
 plugins:
