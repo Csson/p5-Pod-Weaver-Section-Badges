@@ -1,27 +1,28 @@
-use 5.14.0;
+use 5.10.1;
 use strict;
 use warnings;
-use Moops;
 
-# PODNAME: Badge::Depot::Plugin::Atestpluginwedontwant
+package Badge::Depot::Plugin::Atestpluginwedontwant;
 
-class Badge::Depot::Plugin::Atestpluginwedontwant using Moose with Badge::Depot {
+# VERSION
 
-    # VERSION:
+use Moose;
+use Types::Standard qw/Str/;
+with 'Badge::Depot';
 
-    has user => (
-        is => 'ro',
-        isa => Str,
-    );
-    has repo => (
-        is => 'ro',
-        isa => Str,
-    );
-    
-    method BUILD {
-        $self->link_url(sprintf 'https://example.com/%s/%s' => $self->user, $self->repo);
-        $self->image_url(sprintf 'https://example.com/%s/%s.svg' => $self->user, $self->repo);
-    }
+has user => (
+    is => 'ro',
+    isa => Str,
+);
+has repo => (
+    is => 'ro',
+    isa => Str,
+);
+
+sub BUILD {
+    my $self = shift;
+    $self->link_url(sprintf 'https://example.com/%s/%s' => $self->user, $self->repo);
+    $self->image_url(sprintf 'https://example.com/%s/%s.svg' => $self->user, $self->repo);
 }
 
 1;

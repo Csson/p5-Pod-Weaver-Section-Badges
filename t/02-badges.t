@@ -31,28 +31,31 @@ eq_or_diff $content, expected_content(), 'Rendered expectedly';
 done_testing;
 
 sub expected_content {
-    return qi{        use 5.14.0;
+    return qi{        use 5.10.1;
         use strict;
         use warnings;
-        use Moops;
-        
-        # PODNAME: TesterFor::Badges
+
+        # VERSION
         # ABSTRACT: A tester
-        
-        class TesterFor::Badges using Moose with Pod::Weaver::Section::Badges::Utils {
-            has badge_args => (
-                is => 'ro',
-                isa => HashRef[Str],
-                default => sub { {} },
-                traits => ['Hash'],
-                handles => {
-                    badge_args_kv => 'kv',
-                },
-            );
-        }
-        
+
+        package TesterFor::Badges;
+
+        use Moose;
+        use Types::Standard qw/HashRef Str/;
+        with 'Pod::Weaver::Section::Badges::Utils';
+
+        has badge_args => (
+            is => 'ro',
+            isa => HashRef[Str],
+            default => sub { +{} },
+            traits => ['Hash'],
+            handles => {
+                badge_args_kv => 'kv',
+            },
+        );
+
         1;
-        
+
         __END__
         
         =pod
@@ -68,13 +71,6 @@ sub expected_content {
         <p><a href="https://example.com/Csson/p5-test-mojo-trim"><img src="https://example.com/Csson/p5-test-mojo-trim.svg" /></a> <a href="https://example.org/Csson/p5-pod-weaver-section-badges"><img src="https://example.org/Csson/p5-pod-weaver-section-badges.svg" /></a></p>
         
         =end HTML
-        
-        =head1 COPYRIGHT AND LICENSE
-        
-        This software is copyright (c) 2015 by Any One.
-        
-        This is free software; you can redistribute it and/or modify it under
-        the same terms as the Perl 5 programming language system itself.
         
         =cut
 };
