@@ -18,6 +18,7 @@ package Pod::Weaver::Section::Badges;
 use Moose;
 use MooseX::AttributeDocumented;
 use Types::Standard -types;
+use namespace::autoclean;
 with qw/
     Pod::Weaver::Role::Section
     Pod::Weaver::Role::AddTextToSection
@@ -147,6 +148,8 @@ sub weave_section {
         $self->add_text_to_section($document, $output, $self->section);
     }
 }
+
+__PACKAGE__->meta->make_immutable;
 
 1;
 
