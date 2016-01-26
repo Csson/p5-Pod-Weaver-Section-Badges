@@ -1,148 +1,157 @@
-use 5.14.0;
-use Moops;
+use 5.10.1;
 use strict;
 use warnings;
 
-# PODCLASSNAME
-
 package #
-        Pod::Weaver::Section::Badges::PluginSearcher {
+        Pod::Weaver::Section::Badges::PluginSearcher;
 
-    use Moose;
-    use Module::Pluggable search_path => ['Badge::Depot::Plugin'], require => 1;
-}
+# VERSION
 
-class Pod::Weaver::Section::Badges 
- with Pod::Weaver::Role::Section
- with Pod::Weaver::Role::AddTextToSection
- with Pod::Weaver::Section::Badges::Utils
-using Moose {
+use Moose;
+use Module::Pluggable search_path => ['Badge::Depot::Plugin'], require => 1;
 
-    # VERSION
-    # ABSTRACT: Add (or append) a section with badges
-    use MooseX::AttributeDocumented;
+package Pod::Weaver::Section::Badges;
 
-    sub mvp_multivalue_args { qw/badge/ }
+# VERSION
+# ABSTRACT: Add (or append) a section with badges
 
-    has +weaver => (
-        is => 'ro',
-        documentation_order => 0,
-    );
-    has +logger => (
-        is => 'ro',
-        documentation_order => 0,
-    );
-    has +plugin_name => (
-        is => 'ro',
-        documentation_order => 0,
-    );
+use Moose;
+use MooseX::AttributeDocumented;
+use Types::Standard -types;
+with qw/
+    Pod::Weaver::Role::Section
+    Pod::Weaver::Role::AddTextToSection
+    Pod::Weaver::Section::Badges::Utils
+/;
 
-    has badge => (
-        is => 'ro',
-        isa => ArrayRef[Str],
-        traits => ['Array'],
-        default => sub { [] },
-        handles => {
-            all_badges => 'elements',
-            find_badge => 'first',
-            count_badges => 'count',
-        },
-        documentation => q{The name of the wanted badge, lowercased. Repeat for multiple badges. The name is everything after 'Badge::Depot::Plugin::'.},
-        documentation_default => '[]',
-    );
-    has section => (
-        is => 'ro',
-        isa => Str,
-        default => 'NAME',
-        documentation => q{The section of pod to add the badges to, identified by its heading. The section will be created if it doesn't already exist.},
-    );
-    has formats => (
-        is => 'ro',
-        isa => ArrayRef[Enum[qw/html markdown/]],
-        traits => ['Array'],
-        required => 1,
-        handles => {
-            all_formats => 'elements',
-            find_format => 'first',
-            has_formats => 'count',
-        },
-        documentation => q{The formats to render the badges for. Comma separated list, not multiple rows.},
-        documentation_default => '[]',
-    );
-    has badge_args => (
-        is => 'ro',
-        isa => HashRef[Str],
-        default => sub { {} },
-        traits => ['Hash'],
-        handles => {
-            badge_args_kv => 'kv',
-        },
-        documentation_order => 0,
-    );
-    has plugin_searcher => (
-        is => 'ro',
-        isa => Any,
-        init_arg => undef,
-        default => sub { Pod::Weaver::Section::Badges::PluginSearcher->new },
-        documentation_order => 0,
-    );
-    has main_module_only => (
-        is => 'ro',
-        isa => Bool,
-        default => 1,
-        documentation => 'If true, the badges will only be inserted in the main module (as defined by Dist::Zilla). If false, they will be included in all modules.',
-    );
-    
+sub mvp_multivalue_args { qw/badge/ }
 
-    around BUILDARGS($next: $class, $args) {
-        $args->{'formats'} = exists $args->{'formats'} ? [ split /, ?/ => $args->{'formats'} ] : [];
-        $args->{'badge_args'} = { map { $_ => delete $args->{ $_  } } grep { /^-/ } keys %$args };
+has '+weaver' => (
+    is => 'ro',
+    documentation_order => 0,
+    traits => ['Documented'],
+);
+has '+logger' => (
+    is => 'ro',
+    traits => ['Documented'],
+    documentation_order => 0,
+);
+has '+plugin_name' => (
+    is => 'ro',
+    documentation_order => 0,
+    traits => ['Documented'],
+);
 
-        $class->$next($args);
+has badge => (
+    is => 'ro',
+    isa => ArrayRef[Str],
+    traits => ['Array'],
+    default => sub { [] },
+    handles => {
+        all_badges => 'elements',
+        find_badge => 'first',
+        count_badges => 'count',
+    },
+    documentation => q{The name of the wanted badge, lowercased. Repeat for multiple badges. The name is everything after 'Badge::Depot::Plugin::'.},
+    documentation_default => '[]',
+);
+has section => (
+    is => 'ro',
+    isa => Str,
+    default => 'NAME',
+    documentation => q{The section of pod to add the badges to, identified by its heading. The section will be created if it doesn't already exist.},
+);
+has formats => (
+    is => 'ro',
+    isa => ArrayRef[Enum[qw/html markdown/]],
+    traits => ['Array'],
+    required => 1,
+    handles => {
+        all_formats => 'elements',
+        find_format => 'first',
+        has_formats => 'count',
+    },
+    documentation => q{The formats to render the badges for. Comma separated list, not multiple rows.},
+    documentation_default => '[]',
+);
+has badge_args => (
+    is => 'ro',
+    isa => HashRef[Str],
+    default => sub { {} },
+    traits => ['Hash'],
+    handles => {
+        badge_args_kv => 'kv',
+    },
+    documentation_order => 0,
+);
+has plugin_searcher => (
+    is => 'ro',
+    isa => Any,
+    init_arg => undef,
+    default => sub { Pod::Weaver::Section::Badges::PluginSearcher->new },
+    documentation_order => 0,
+);
+has main_module_only => (
+    is => 'ro',
+    isa => Bool,
+    default => 1,
+    documentation => 'If true, the badges will only be inserted in the main module (as defined by Dist::Zilla). If false, they will be included in all modules.',
+);
+
+
+around BUILDARGS => sub {
+    my $next = shift;
+    my $class = shift;
+    my $args = shift;
+    $args->{'formats'} = exists $args->{'formats'} ? [ split /, ?/ => $args->{'formats'} ] : [];
+    $args->{'badge_args'} = { map { $_ => delete $args->{ $_  } } grep { /^-/ } keys %$args };
+
+    $class->$next($args);
+};
+
+sub weave_section {
+    my $self = shift;
+    my $document = shift;
+    my $input = shift;
+
+    return if $self->main_module_only && $input->{'filename'} ne $input->{'zilla'}->main_module->name;
+
+    my $badge_objects = $self->create_badges;
+    return if !scalar @$badge_objects;
+
+    if(!$self->has_formats) {
+        $self->log(['!!! No formats defined in weaver.ini, no badges to create.']);
     }
 
-    method weave_section($document, $input) {
-        return if $self->main_module_only && $input->{'filename'} ne $input->{'zilla'}->main_module->name;
-
-        my $badge_objects = $self->create_badges;
-        return if !scalar @$badge_objects;
-
-        if(!$self->has_formats) {
-            $self->log(['!!! No formats defined in weaver.ini, no badges to create.']);
+    my $formats = [
+        {
+            name => 'html',
+            before => '<p>',
+            after => '</p>',
+        },
+        {
+            name => 'markdown',
+            before => undef,
+            after => undef,
         }
+    ];
 
-        my $formats = [
-            {
-                name => 'html',
-                before => '<p>',
-                after => '</p>',
-            },
-            {
-                name => 'markdown',
-                before => undef,
-                after => undef,
-            }
-        ];
-
-        my @output = ();
-        foreach my $format (@$formats) {
-            push @output => @{ $self->render_badges($format, $badge_objects) };
-        }
-
-        if(scalar @output) {
-            my $output = join "\n" => '', @output, '';
-
-            $self->add_text_to_section($document, $output, $self->section);
-        }
+    my @output = ();
+    foreach my $format (@$formats) {
+        push @output => @{ $self->render_badges($format, $badge_objects) };
     }
-    method log_debug($text) {
-        # silence Pod::Weaver::Role::AddTextToSection
+
+    if(scalar @output) {
+        my $output = join "\n" => '', @output, '';
+
+        $self->add_text_to_section($document, $output, $self->section);
     }
 }
 
 1;
 
 __END__
+
 =pod
 
 :splint classname Pod::Weaver::Section::Badges
