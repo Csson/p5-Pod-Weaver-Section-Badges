@@ -8,6 +8,7 @@ Revision history for Pod-Weaver-Section-Badges
  [Documentation]
 
  [Enhancements]
+  - Can now be used without Dist::Zilla (#3, thanks MGRIMES).
 
  [New Features]
 

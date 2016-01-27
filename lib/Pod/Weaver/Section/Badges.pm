@@ -110,12 +110,25 @@ around BUILDARGS => sub {
     $class->$next($args);
 };
 
+sub main_module {
+    my $self = shift;
+    my $input = shift;
+
+    # Use the main_module as defined by Dist::Zilla if it is available
+    return $input->{'zilla'}->main_module->name if exists $input->{'zilla'};
+
+    # Taken from Dist::Zilla
+    # If your distribution is Foo-Bar, and lib/Foo/Bar.pm exists, that's the main_module.
+    (my $guess = 'lib/' . $input->{'meta'}{'name'} . '.pm') =~ s{-}{/}g;
+    return -e $guess ? $guess : undef;
+}
+
 sub weave_section {
     my $self = shift;
     my $document = shift;
     my $input = shift;
 
-    return if $self->main_module_only && $input->{'filename'} ne $input->{'zilla'}->main_module->name;
+    return if $self->main_module_only && $input->{'filename'} ne $self->main_module($input);
 
     my $badge_objects = $self->create_badges;
     return if !scalar @$badge_objects;
