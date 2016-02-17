@@ -41,6 +41,7 @@ doctype: weaver
 plugins:
   - +config: Author::CSSON
     splint: 1
+    badges: 0
 
 ---
 doctype: cpanfile

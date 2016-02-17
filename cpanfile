@@ -1,4 +1,4 @@
-# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-17 22:24:27 UTC.
+# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-17 22:37:09 UTC.
 
 on runtime => sub {
     requires 'List::AllUtils' => '0';
@@ -38,12 +38,6 @@ on configure => sub {
     requires 'ExtUtils::MakeMaker' => '0';
 };
 on develop => sub {
-    requires 'Badge::Depot' => '0';
-    requires 'Badge::Depot::Plugin::Coverage' => '0';
-    requires 'Badge::Depot::Plugin::Cpantesters' => '0';
-    requires 'Badge::Depot::Plugin::Kwalitee' => '0';
-    requires 'Badge::Depot::Plugin::Perl' => '0';
-    requires 'Badge::Depot::Plugin::Travis' => '0';
     requires 'Dist::Zilla::Plugin::Authority' => '1.009';
     requires 'Dist::Zilla::Plugin::BumpVersionAfterRelease::Transitional' => '0.007';
     requires 'Dist::Zilla::Plugin::ChangeStats::Dependencies::Git' => '0';
@@ -98,7 +92,6 @@ on develop => sub {
     requires 'Pod::Weaver::Plugin::Transformer' => '0';
     requires 'Pod::Weaver::PluginBundle::CorePrep' => '0';
     requires 'Pod::Weaver::Section::Authors' => '0';
-    requires 'Pod::Weaver::Section::Badges' => '0';
     requires 'Pod::Weaver::Section::Collect' => '0';
     requires 'Pod::Weaver::Section::Generic' => '0';
     requires 'Pod::Weaver::Section::Homepage::DefaultCPAN' => '0';

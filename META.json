@@ -31,12 +31,6 @@
       },
       "develop" : {
          "requires" : {
-            "Badge::Depot" : "0",
-            "Badge::Depot::Plugin::Coverage" : "0",
-            "Badge::Depot::Plugin::Cpantesters" : "0",
-            "Badge::Depot::Plugin::Kwalitee" : "0",
-            "Badge::Depot::Plugin::Perl" : "0",
-            "Badge::Depot::Plugin::Travis" : "0",
             "Dist::Zilla::Plugin::Authority" : "1.009",
             "Dist::Zilla::Plugin::BumpVersionAfterRelease::Transitional" : "0.007",
             "Dist::Zilla::Plugin::ChangeStats::Dependencies::Git" : "0",
@@ -91,7 +85,6 @@
             "Pod::Weaver::Plugin::Transformer" : "0",
             "Pod::Weaver::PluginBundle::CorePrep" : "0",
             "Pod::Weaver::Section::Authors" : "0",
-            "Pod::Weaver::Section::Badges" : "0",
             "Pod::Weaver::Section::Collect" : "0",
             "Pod::Weaver::Section::Generic" : "0",
             "Pod::Weaver::Section::Homepage::DefaultCPAN" : "0",
