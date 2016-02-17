@@ -42,4 +42,5 @@ plugins:
   - +config: Author::CSSON
     splint: 1
 
-  - +remove_plugin: Badges
+---
+doctype: cpanfile
