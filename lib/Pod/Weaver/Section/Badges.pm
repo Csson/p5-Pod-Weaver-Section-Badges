@@ -6,7 +6,7 @@ package Pod::Weaver::Section::Badges;
 
 # ABSTRACT: Add (or append) a section with badges
 # AUTHORITY
-our $VERSION = '0.0401';
+our $VERSION = '0.0402';
 
 use Moose;
 use MooseX::AttributeDocumented;

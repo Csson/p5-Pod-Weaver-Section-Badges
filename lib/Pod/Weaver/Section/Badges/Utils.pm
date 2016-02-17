@@ -6,7 +6,7 @@ package Pod::Weaver::Section::Badges::Utils;
 
 # ABSTRACT: Some helpers
 # AUTHORITY
-# VERSION
+our $VERSION = '0.0402';
 
 use Moose::Role;
 use List::AllUtils 'first';
