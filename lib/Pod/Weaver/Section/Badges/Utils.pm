@@ -4,11 +4,11 @@ use warnings;
 
 package Pod::Weaver::Section::Badges::Utils;
 
-# VERSION
 # ABSTRACT: Some helpers
+# AUTHORITY
+# VERSION
 
 use Moose::Role;
-
 use List::AllUtils 'first';
 
 sub get_params_for {
@@ -62,10 +62,8 @@ sub render_badges {
     my $format = shift;  # Dict[ name => Str, before => Maybe[Str], after => Maybe[Str] ]
     my $badges = shift;  # ArrayRef[ ConsumerOf['Badge::Depot'] ]
 
-    my $part_format_name = $format->{'name'} eq 'markdown' ? 'markdown' : uc $format->{'name'};
-
-    my $pod_command_begin = sprintf '=begin %s', $part_format_name;
-    my $pod_command_end   = sprintf '=end %s', $part_format_name;
+    my $pod_command_begin = sprintf '=begin %s', $format->{'name'};
+    my $pod_command_end   = sprintf '=end %s', $format->{'name'};
     my $format_method = sprintf 'to_%s', $format->{'name'};
 
     my @badges_output = ();
@@ -77,7 +75,7 @@ sub render_badges {
     }
     if(@badges_output) {
         push @complete_output => '', $pod_command_begin, '', ;
-        push @complete_output => ($format->{'before'} || '') . join (' ' => @badges_output) . ($format->{'after'} || '');
+        push @complete_output => (($format->{'before'} || ''), join ("\n" => @badges_output), ($format->{'after'} || ''));
         push @complete_output => '', $pod_command_end, '';
     }
     return \@complete_output;

@@ -5,15 +5,16 @@ use warnings;
 package #
         Pod::Weaver::Section::Badges::PluginSearcher;
 
-# VERSION
+our $VERSION = '0.0401';
 
 use Moose;
 use Module::Pluggable search_path => ['Badge::Depot::Plugin'], require => 1;
 
 package Pod::Weaver::Section::Badges;
 
-# VERSION
 # ABSTRACT: Add (or append) a section with badges
+# AUTHORITY
+our $VERSION = '0.0401';
 
 use Moose;
 use MooseX::AttributeDocumented;
@@ -75,6 +76,13 @@ has formats => (
     documentation => q{The formats to render the badges for. Comma separated list, not multiple rows.},
     documentation_default => '[]',
 );
+has skip_markdown_if_html => (
+    is => 'ro',
+    isa => Bool,
+    default => 1,
+    documentation => q{Some markdown renderers also renders '=begin html' blocks, which makes it unnecessary to set both html and markdown as output formats. Set this to a false value to produce both blocks.},
+);
+
 has badge_args => (
     is => 'ro',
     isa => HashRef[Str],
@@ -151,7 +159,10 @@ sub weave_section {
     ];
 
     my @output = ();
+    FORMAT:
     foreach my $format (@$formats) {
+        # Optionally skip markdown if we also prints to html
+        next FORMAT if $format->{'name'} eq 'markdown' && $self->find_format(sub { $_ eq 'html'}) && $self->skip_markdown_if_html;
         push @output => @{ $self->render_badges($format, $badge_objects) };
     }
 
