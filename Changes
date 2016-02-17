@@ -8,7 +8,8 @@ Revision history for Pod-Weaver-Section-Badges
  [Documentation]
 
  [Enhancements]
-  - Can now be used without Dist::Zilla (#3, thanks MGRIMES).
+  - New attribute 'skip_markdown_if_html' doesn't produce '=begin markdown' blocks if both html and markdown are set as formats. Some (all?) markdown renderers also render html blocks. This avoids duplicating the badges.
+  - Badges are now rendered one-per-line. This ensures that lines aren't overly long when using many badges.
 
  [New Features]
 
@@ -17,6 +18,10 @@ Revision history for Pod-Weaver-Section-Badges
  [Requirements]
 
  [Testing]
+
+0.0400 2016-01-27T22:16:34Z UTC
+ [Enhancements]
+ - Can now be used without Dist::Zilla (#3, thanks MGRIMES).
 
 0.0300 2016-01-26T18:25:47Z UTC
  [Other Changes]
