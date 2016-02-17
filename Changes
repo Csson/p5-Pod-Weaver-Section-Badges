@@ -8,8 +8,6 @@ Revision history for Pod-Weaver-Section-Badges
  [Documentation]
 
  [Enhancements]
-  - New attribute 'skip_markdown_if_html' doesn't produce '=begin markdown' blocks if both html and markdown are set as formats. Some (all?) markdown renderers also render html blocks. This avoids duplicating the badges.
-  - Badges are now rendered one-per-line. This ensures that lines aren't overly long when using many badges.
 
  [New Features]
 
@@ -17,7 +15,40 @@ Revision history for Pod-Weaver-Section-Badges
 
  [Requirements]
 
+ [Stats & Dependency Changes]
+
  [Testing]
+
+0.0401 2016-02-17T22:42:47Z UTC
+ [Enhancements]
+ - New attribute 'skip_markdown_if_html' doesn't produce '=begin markdown'
+   blocks if both html and markdown are set as formats. Some (all?)
+   markdown renderers also render html blocks. This avoids duplicating the
+   badges.
+ - Badges are now rendered one-per-line. This ensures that lines aren't
+   overly long when using many badges.
+
+ [Stats & Dependency Changes]
+ - 6 files changed, 44 insertions(+), 24 deletions(-)
+ - (run req) ~ perl 5.010001 --> 5.010000
+ - (dev req) + Dist::Zilla::Plugin::Authority 1.009
+ - (dev req) + Dist::Zilla::Plugin::BumpVersionAfterRelease::Transitional
+   0.007
+ - (dev req) + Dist::Zilla::Plugin::ChangeStats::Dependencies::Git (any)
+ - (dev req) + Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch 0.013
+ - (dev req) + Dist::Zilla::Plugin::Git::Commit (any)
+ - (dev req) + Dist::Zilla::Plugin::NextRelease::Grouped (any)
+ - (dev req) + Dist::Zilla::Plugin::RewriteVersion::Transitional 0.007
+ - (dev req) ~ Pod::Elemental::Transformer::Splint (any) --> 0.1201
+ - (dev req) ~ Test::More (any) --> 0.88
+ - (dev req) - Dist::Iller::Config::Author::CSSON
+ - (dev req) - Dist::Zilla::Plugin::NextRelease
+ - (dev req) - Dist::Zilla::Plugin::NextVersion::Semantic
+ - (dev req) - Dist::Zilla::Plugin::OurPkgVersion
+ - (dev req) - Dist::Zilla::Plugin::PreviousVersion::Changelog
+ - (dev req) - Dist::Zilla::Plugin::ReversionOnRelease
+ - (dev sug) + Dist::Iller 0.1406
+ - (dev sug) + Dist::Iller::Config::Author::CSSON 0.0307
 
 0.0400 2016-01-27T22:16:34Z UTC
  [Enhancements]
@@ -82,4 +113,3 @@ Revision history for Pod-Weaver-Section-Badges
 
 0.0100 2015-02-14T02:18:15Z CET
  - Initial release
-
