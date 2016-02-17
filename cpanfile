@@ -1,4 +1,4 @@
-# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-17 22:14:40 UTC.
+# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-17 22:24:27 UTC.
 
 on runtime => sub {
     requires 'List::AllUtils' => '0';
@@ -9,7 +9,7 @@ on runtime => sub {
     requires 'Pod::Weaver::Role::Section' => '0';
     requires 'Types::Standard' => '1.000000';
     requires 'namespace::autoclean' => '0.18';
-    requires 'perl' => '5.010001';
+    requires 'perl' => '5.010000';
 };
 on test => sub {
     requires 'Badge::Depot' => '0';

@@ -122,7 +122,7 @@
             "Pod::Weaver::Role::Section" : "0",
             "Types::Standard" : "1.000000",
             "namespace::autoclean" : "0.18",
-            "perl" : "5.010001"
+            "perl" : "5.010000"
          }
       },
       "test" : {
@@ -154,6 +154,10 @@
    "provides" : {
       "Pod::Weaver::Section::Badges" : {
          "file" : "lib/Pod/Weaver/Section/Badges.pm",
+         "version" : "0.0401"
+      },
+      "Pod::Weaver::Section::Badges::PluginSearcher" : {
+         "file" : "lib/Pod/Weaver/Section/Badges/PluginSearcher.pm",
          "version" : "0.0401"
       },
       "Pod::Weaver::Section::Badges::Utils" : {

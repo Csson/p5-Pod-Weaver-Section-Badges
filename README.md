@@ -1,14 +1,14 @@
 # NAME
 
-Pod::Weaver::Section::Badges::PluginSearcher - Add (or append) a section with badges
+Pod::Weaver::Section::Badges - Add (or append) a section with badges
 
 <div>
     <p>
-    <img src="https://img.shields.io/badge/perl-5.10.1+-blue.svg" alt="Requires Perl 5.10.1+" />
+    <img src="https://img.shields.io/badge/perl-5.10+-blue.svg" alt="Requires Perl 5.10+" />
     <a href="https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges"><img src="https://api.travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges.svg?branch=master" alt="Travis status" /></a>
     <a href="http://cpants.cpanauthors.org/dist/Pod-Weaver-Section-Badges-0.0401"><img src="https://badgedepot.code301.com/badge/kwalitee/Pod-Weaver-Section-Badges/0.0401" alt="Distribution kwalitee" /></a>
     <a href="http://matrix.cpantesters.org/?dist=Pod-Weaver-Section-Badges%200.0401"><img src="https://badgedepot.code301.com/badge/cpantesters/Pod-Weaver-Section-Badges/0.0401" alt="CPAN Testers result" /></a>
-    <img src="https://img.shields.io/badge/coverage-80.0%-orange.svg" alt="coverage 80.0%" />
+    <img src="https://img.shields.io/badge/coverage-81.6%-orange.svg" alt="coverage 81.6%" />
     </p>
 </div>
 

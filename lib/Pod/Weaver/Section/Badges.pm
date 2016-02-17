@@ -1,14 +1,6 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
-
-package #
-        Pod::Weaver::Section::Badges::PluginSearcher;
-
-our $VERSION = '0.0401';
-
-use Moose;
-use Module::Pluggable search_path => ['Badge::Depot::Plugin'], require => 1;
 
 package Pod::Weaver::Section::Badges;
 
@@ -20,6 +12,7 @@ use Moose;
 use MooseX::AttributeDocumented;
 use Types::Standard -types;
 use namespace::autoclean;
+use Pod::Weaver::Section::Badges::PluginSearcher;
 with qw/
     Pod::Weaver::Role::Section
     Pod::Weaver::Role::AddTextToSection
