@@ -2,9 +2,19 @@
 
 Pod::Weaver::Section::Badges::PluginSearcher - Add (or append) a section with badges
 
+<div>
+    <p>
+    <img src="https://img.shields.io/badge/perl-5.10.1+-blue.svg" alt="Requires Perl 5.10.1+" />
+    <a href="https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges"><img src="https://api.travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges.svg?branch=master" alt="Travis status" /></a>
+    <a href="http://cpants.cpanauthors.org/dist/Pod-Weaver-Section-Badges-0.0401"><img src="https://badgedepot.code301.com/badge/kwalitee/Pod-Weaver-Section-Badges/0.0401" alt="Distribution kwalitee" /></a>
+    <a href="http://matrix.cpantesters.org/?dist=Pod-Weaver-Section-Badges%200.0401"><img src="https://badgedepot.code301.com/badge/cpantesters/Pod-Weaver-Section-Badges/0.0401" alt="CPAN Testers result" /></a>
+    <img src="https://img.shields.io/badge/coverage-80.0%-orange.svg" alt="coverage 80.0%" />
+    </p>
+</div>
+
 # VERSION
 
-Version 0.0400, released 2016-01-27.
+Version 0.0401, released 2016-02-17.
 
 # SYNOPSIS
 
@@ -110,6 +120,18 @@ Which is then injected into the chosen `section`.
 </table>
 
 <p>The section of pod to add the badges to, identified by its heading. The section will be created if it doesn't already exist.</p>
+
+## skip\_markdown\_if\_html
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;"><a href="https://metacpan.org/pod/Types::Standard#Bool">Bool</a></td>
+    <td style="padding-right: 6px; padding-left: 6px; border-right: 1px solid #b8b8b8; white-space: nowrap;">optional, default: <code>1</code></td>
+    <td style="padding-left: 6px; padding-right: 6px; white-space: nowrap;">read-only</td>
+</tr>
+</table>
+
+<p>Some markdown renderers also renders '=begin html' blocks, which makes it unnecessary to set both html and markdown as output formats. Set this to a false value to produce both blocks.</p>
 
 # SEE ALSO
 
