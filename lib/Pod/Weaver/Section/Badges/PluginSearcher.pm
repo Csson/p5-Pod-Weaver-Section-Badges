@@ -5,7 +5,7 @@ use warnings;
 package Pod::Weaver::Section::Badges::PluginSearcher;
 
 # AUTHORITY
-our $VERSION = '0.0402';
+our $VERSION = '0.0403';
 
 use Moose;
 use Module::Pluggable search_path => ['Badge::Depot::Plugin'], require => 1;
