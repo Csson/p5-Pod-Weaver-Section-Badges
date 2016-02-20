@@ -69,7 +69,7 @@ sub expected_content {
         =begin html
 
         <p>
-        <a href="https://example.com/Csson/p5-test-mojo-trim"><img src="https://example.com/Csson/p5-test-mojo-trim.svg" /></a>
+        <a href="https://example.com/Csson/p5-test-mojo-trim/0.01"><img src="https://example.com/Csson/p5-test-mojo-trim.svg" /></a>
         <a href="https://example.org/Csson/p5-pod-weaver-section-badges"><img src="https://example.org/Csson/p5-pod-weaver-section-badges.svg" /></a>
         </p>
 

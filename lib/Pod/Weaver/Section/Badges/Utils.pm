@@ -9,7 +9,7 @@ package Pod::Weaver::Section::Badges::Utils;
 our $VERSION = '0.0402';
 
 use Moose::Role;
-use List::AllUtils 'first';
+use List::Util 'first';
 
 sub get_params_for {
     my $self = shift;
@@ -36,6 +36,7 @@ sub badge_to_class {
 
 sub create_badges {
     my $self = shift;
+    my $badges_args = shift || {};
 
     my @all_plugins = $self->plugin_searcher->plugins;
     my @badge_objects = ();
@@ -46,7 +47,7 @@ sub create_badges {
         my $plugin_class = first { $_ eq $wanted_plugin_class } @all_plugins;
 
         next BADGE if !defined $plugin_class;
-        my $plugin = $plugin_class->new($self->get_params_for(lc $badge));
+        my $plugin = $plugin_class->new($self->get_params_for(lc $badge), %{ $badges_args });
 
         if(!$plugin->DOES('Badge::Depot')) {
             warn sprintf '! %s does not consume the Badge::Depot role', $plugin_class;
@@ -70,7 +71,7 @@ sub render_badges {
     my @complete_output = ();
 
     if($self->find_format(sub { $_ eq $format->{'name'} })) {
-        push @badges_output => $_->$format_method foreach (@$badges);
+        push @badges_output => grep { defined $_ && length $_ } $_->$format_method foreach (@$badges);
 
     }
     if(@badges_output) {
