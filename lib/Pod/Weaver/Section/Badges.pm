@@ -10,6 +10,7 @@ our $VERSION = '0.0402';
 
 use Moose;
 use MooseX::AttributeDocumented;
+use PerlX::Maybe qw/provided/;
 use Types::Standard -types;
 use namespace::autoclean;
 use Pod::Weaver::Section::Badges::PluginSearcher;
@@ -131,7 +132,10 @@ sub weave_section {
 
     return if $self->main_module_only && $input->{'filename'} ne $self->main_module($input);
 
-    my $badge_objects = $self->create_badges;
+    my $badges_args = {
+        provided ref $input eq 'HASH' && exists $input->{'zilla'}, zilla => $input->{'zilla'},
+    };
+    my $badge_objects = $self->create_badges($badges_args);
     return if !scalar @$badge_objects;
 
     if(!$self->has_formats) {
