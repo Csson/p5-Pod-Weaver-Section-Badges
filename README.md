@@ -2,9 +2,19 @@
 
 Pod::Weaver::Section::Badges - Add (or append) a section with badges
 
+<div>
+    <p>
+    <img src="https://img.shields.io/badge/perl-5.10+-blue.svg" alt="Requires Perl 5.10+" />
+    <a href="https://travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges"><img src="https://api.travis-ci.org/Csson/p5-Pod-Weaver-Section-Badges.svg?branch=master" alt="Travis status" /></a>
+    <a href="http://cpants.cpanauthors.org/dist/Pod-Weaver-Section-Badges-0.0402"><img src="https://badgedepot.code301.com/badge/kwalitee/Pod-Weaver-Section-Badges/0.0402" alt="Distribution kwalitee" /></a>
+    <a href="http://matrix.cpantesters.org/?dist=Pod-Weaver-Section-Badges%200.0402"><img src="https://badgedepot.code301.com/badge/cpantesters/Pod-Weaver-Section-Badges/0.0402" alt="CPAN Testers result" /></a>
+    <img src="https://img.shields.io/badge/coverage-81.0%-orange.svg" alt="coverage 81.0%" />
+    </p>
+</div>
+
 # VERSION
 
-Version 0.0401, released 2016-02-17.
+Version 0.0402, released 2016-02-20.
 
 # SYNOPSIS
 

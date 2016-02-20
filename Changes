@@ -8,6 +8,8 @@ Revision history for Pod-Weaver-Section-Badges
  [Documentation]
 
  [Enhancements]
+  - Pass on the Dist::Zilla object (if available) to the badges.
+  - Don't create any output if the badge plugin doesn't return anything. Previously created a line break.
 
  [New Features]
 
